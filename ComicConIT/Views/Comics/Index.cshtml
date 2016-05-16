@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ComicConIT.Models.Comics>
+
+@{
+
+}
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<h2>Лучшее</h2>
+<p>
+    <div class="btn btn-default">
+        @Html.ActionLink("Добавить комикс", "Create")
+    </div>
+
+</p>
+
+@foreach (var item in Model)
+{
+
+    <div class="story">
+        <div class="story__left">
+            <div class="story__rating-block">
+                <div id="rateUp_@item.ID" class="story__rating-up" title="Поставить плюсик">
+                    <script>
+                        $(document).ready(function () {
+                            $("#rateUp_@item.ID").on("click", function () {
+                                var val = $('#Rate').val();
+                                $.ajax({
+                                    url: "/Comics/Vote",
+                                    type: "GET",
+                                    data: {id:@item.ID, increment: true}
+                                })
+                                 .done(function(partialViewResult) {
+                                     $("#story__rating-count_@item.ID").html(partialViewResult);
+                                 });
+                            });
+                        });
+                    </script>
+                </div>
+                <div id="story__rating-count_@item.ID" class="story__rating-count">@Html.Partial("_PartialVote", item)</div>
+                <div id="rateDown_@item.ID" class="story__rating-down" title="Поставить плюсик">
+                    <script>
+                        $(document).ready(function () {
+                            $("#rateDown_@item.ID").on("click", function () {
+                                var val = $('#Rate').val();
+                                $.ajax({
+                                    url: "/Comics/Vote",
+                                    type: "GET",
+                                    data: {id:@item.ID,increment: false}
+                                })
+                                 .done(function(partialViewResult) {
+                                     $("#story__rating-count_@item.ID").html(partialViewResult);
+                                 });
+                            });
+                        });
+                    </script>
+                </div>
+
+                @if (item.Rating == "PGG")
+                {
+                    <div class="container"><img src="http://entertainment.sltrib.com/img/mpaa_pg.jpg" /></div>
+                }
+                @if (item.Rating == "G")
+                {
+                    <div class="container"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/RATED_G.svg/46px-RATED_G.svg.png" /></div>
+                }
+                @if (item.Rating == "PG")
+                {
+                    <div class="container"><img src="http://wowway.net/tv/images/icon_rating_pg13.png" /></div>
+                }
+
+        </div>
+    </div>
+    <div class="story__main">
+        <div class="story__header">
+            <div class="story__header-title">
+                @Html.ActionLink(item.Title, "Details", new { id = item.ID })
+            </div>
+            <div class="story__header-additional">
+                <div class="story__header-additional-wrapper">
+                    <a class="story__comments-count story__to-comments" href="#">Комементариев</a>
+                    ; пришло от
+                    <a class="story__author" href="#">@item.UserName</a>
+                    <div class="story__date">@item.ReleaseDate</div>
+                    <div class="story__tags"><a href="/Index?ComicGenre=@item.Genre" target="_blank" class="story__tag" title="Поиск по тегу">@item.Genre</a></div>
+                    @if (ViewContext.HttpContext.User.IsInRole("admin") || ViewContext.HttpContext.User.Identity.Name == item.UserName)
+                    {
+                        <div class="delete">@Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="story__wrapper" style="display:block">
+            <img src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+        </div>
+    </div>
+</div>
+}

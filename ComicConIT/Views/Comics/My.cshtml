@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ComicConIT.Models.Comics>
+
+@{
+    ViewBag.Title = "My";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Comics", FormMethod.Get))
+    {
+    <p>
+        Genre: @Html.DropDownList("ComicGenre", "All")
+        Title: @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" />
+    </p>
+    }
+    </p>
+
+
+    @foreach (var item in Model)
+    {
+
+
+
+        <div class="story">
+            <div class="story__left">
+                <div class="story__rating-block">
+                    <div class="story__rating-up" title="Поставить плюсик">
+
+                    </div>
+                    <div class="story__rating-count">@Html.DisplayFor(modelItem => item.Rate)</div>
+                    <div class="story__rating-down" title="Поставить плюсик">
+
+                    </div>
+                    <div class="container">@item.Rating</div>
+                </div>
+            </div>
+            <div class="story__main">
+                <div class="story__header">
+                    <div class="story__header-title">
+                        @Html.ActionLink(item.Title, "Details", new { id = item.ID })
+                    </div>
+                    <div class="story__header-additional">
+                        <div class="story__header-additional-wrapper">
+                            <a class="story__comments-count story__to-comments" href="#">Комементариев</a>
+                            ; пришло от
+                            <a class="story__author" href="#">Автор</a>
+                            <div class="story__date">@item.ReleaseDate</div>
+                            <div class="story__tags"><a href="http://localhost:54264/Index?ComicGenre=@item.Genre" target="_blank" class="story__tag" title="Поиск по тегу">@item.Genre</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story__wrapper" style="display:block">
+                    <img src="~/Images/@Html.DisplayFor(modelItem => item.ImagePath)" />
+                </div>
+            </div>
+        </div>
+    }

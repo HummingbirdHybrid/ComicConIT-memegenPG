@@ -1,0 +1,456 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="vk:app_id" content="2694307">
+    <meta property="fb:admins" content="1341124907">
+    <meta property="og:title" content="Создать комикс | Генератор комиксов">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://1001mem.ru/create_comics">
+    <meta property="og:site_name" content="1001 Мем">
+    <meta property="og:image" content="http://s.1001mem.ru//images/apple-touch-icon-114x114.png">
+
+    <!--<link rel="image_src" href="http://s.1001mem.ru//images/75x75.png" />-->
+
+    <title>Создать комикс | Генератор комиксов</title>
+    <meta name="description" content="Генератор комиксов, который позволяет создать комикс, сохранить его и опубликовать на сайте">
+    <meta name="keywords" content="Создать комикс, Генератор комиксов, создать комикс fffuuu, создать комикс онлайн">
+
+    <!-- Styles -->
+    <link type="text/css" href="///cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.4/css/bootstrap.min.css" rel="stylesheet" media="all">
+    <link type="text/css" href="///cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link type="text/css" href="http://s.1001mem.ru/stylesheets/style.css?733195" rel="stylesheet" media="all">
+    <link type="text/css" href="http://s.1001mem.ru/ragemaker/jquery-ui-1.8.17.custom.css?733195" rel="stylesheet" media="all">
+    <link type="text/css" href="http://s.1001mem.ru/ragemaker/ragemaker.css?733195" rel="stylesheet" media="all">
+
+    <!-- Javascript -->
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/javascripts/funposts.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/javascripts/mem.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/jquery.ui-1.8.17.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/rotate.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/ajaxfileupload.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/shortcut.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/taexpander.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/farbtastic.js?733195"></script>
+    <script type="text/javascript" src="http://s.1001mem.ru/ragemaker/js/ragemaker.js?733195"></script>
+
+    <!-- Fav and Touch icons -->
+    <link rel="shortcut icon" href="http://s.1001mem.ru/images/favicon.ico" type="image/png">
+    <link rel="apple-touch-icon" href="http://s.1001mem.ru/images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript">
+		FunPosts.is_logged = false;
+
+    </script>
+</head>
+<body>
+    <div id="vk_api_transport" style="position: absolute; top: -10000px;"></div>
+
+    <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?45"></script>
+    <script type="text/javascript">
+    VK.init({apiId: 2694307});
+    </script>
+
+    <!-- Navigation -->
+    <div class="navbar navbar-fixed-top navbar-primary" role="navigation">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="/" target="_self">1001 Мем</a>
+
+            <!-- User Navigation -->
+            <ul class="nav nav-pills nav-user">
+
+                <li class="signup dropdown">
+                    <a href="/signup" data-toggle="dropdown"><b>Зарегистрироваться</b></a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-signin">
+                        <h5>Выберите социальную сеть</h5>
+                        <div class="signInServices short clearfix">
+                            <a class="btn-signin btn-signin-vk" href="#" onclick="Mem.Auth.popup('vk', ''); return false">
+                                <div class="logo_wrapper"><span class="logo"></span></div>
+                            </a>
+                            <a class="btn-signin btn-signin-ok" href="#" onclick="Mem.Auth.popup('ok', ''); return false">
+                                <div class="logo_wrapper"><span class="logo"></span></div>
+                            </a>
+                            <a class="btn-signin btn-signin-fb" href="#" onclick="Mem.Auth.popup('fb', ''); return false">
+                                <div class="logo_wrapper"><span class="logo"></span></div>
+                            </a>
+                        </div>
+                        <div class="tip">
+                            Регистрация на 1001мем возможна только через социальные сети.
+                        </div>
+                    </div>
+                </li>
+                <li class="signin dropdown">
+                    <a href="/signin" data-toggle="dropdown">Войти</a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-signin">
+                        <div id="signinSocialWrap">
+                            <h5>Выберите социальную сеть</h5>
+                            <div class="signInServices short clearfix">
+                                <a class="btn-signin btn-signin-vk" href="#" onclick="Mem.Auth.popup('vk', ''); return false">
+                                    <div class="logo_wrapper"><span class="logo"></span></div>
+                                </a>
+                                <a class="btn-signin btn-signin-ok" href="#" onclick="Mem.Auth.popup('ok', ''); return false">
+                                    <div class="logo_wrapper"><span class="logo"></span></div>
+                                </a>
+                                <a class="btn-signin btn-signin-fb" href="#" onclick="Mem.Auth.popup('fb', ''); return false">
+                                    <div class="logo_wrapper"><span class="logo"></span></div>
+                                </a>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="formToggle">
+                                <a href="javascript:;" id="signinFormToggle">Войти, используя логин и пароль</a>
+                            </div>
+                        </div>
+                        <div id="signinFormWrap" style="display:none">
+                            <form action="/signin?form=1" method="post" role="form">
+                                <input type="hidden" name="token" value="9001898d9804fe81bd1dcc7b35e6c792797009b5">
+                                <div class="form-group">
+                                    <label for="signinEmail">Логин или Е-Майл</label>
+                                    <input type="text" name="username" class="form-control" id="signinEmail" tabindex="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="signinPassword">Пароль (<a href="/reset" style="font-weight:normal" tabindex="4">Забыли?</a>)</label>
+                                    <input type="password" name="password" class="form-control" id="signinPassword" tabindex="2">
+                                </div>
+                                <button type="submit" class="btn btn-primary" tabindex="3">Войти</button>
+                            </form>
+                        </div>
+                        <script type="text/javascript">
+					$(function(){
+						$('#signinFormToggle').click(function(e){
+							e.stopPropagation();
+							$('#signinSocialWrap').fadeOut(200, function(){
+								$('#signinFormWrap').fadeIn(200);
+								document.getElementById('signinEmail').focus();
+							});
+						});
+						$('#signinFormWrap').on('keyup',function(e){e.stopPropagation()});
+					});
+                        </script>
+                    </div>
+                </li>
+
+            </ul>
+
+            <!-- Notifications -->
+            <!-- Site Navigation -->
+            <ul class="nav nav-pills pull-left">
+                <li class=""><a href="/upload" class="upload"><i class="fa fa-cloud-upload"></i> Добавить</a></li>
+                <li class="dropdown active">
+                    <a href="javascript:;" class="create" data-toggle="dropdown"><i class="fa fa-magic"></i> Создать <b class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                        <li><a href="/create_meme"><i class="fa fa-fw fa-photo"></i> Создать Мем</a></li>
+                        <li><a href="/create_prikol"><i class="fa fa-fw fa-align-justify"></i> Создать Прикол</a></li>
+                        <li><a href="/create_comics"><i class="fa fa-fw fa-th-large"></i> Создать Комикс</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container" id="body_container">
+        <div class="row">
+            <div class="span12">
+
+                <div id="main">
+
+                    <!-- header -->
+                    <div class="create-header clearfix">
+                        <div class="pull-left">
+                            <h1>Генератор Комиксов</h1>
+                            <h3>Шаг 1: Расположение элементов</h3>
+                        </div>
+                        <div class="pull-right" style="text-align: right">
+                            <h1><a href="http://vk.com/shablony.for.comics" target="_blank">Не нашли нужный шаблон?</a></h1>
+                            <h3><a href="/faq" target="_blank">Что такое «мем»?</a></h3>
+                        </div>
+                    </div>
+
+                    <!-- coontent -->
+                    <div class="create-content">
+                        <div style="width: 910px; margin: 0 auto;">
+
+                            <div class="alert-message error" id="ie-error" style="display: none;">
+                                <p>
+                                    Вы используете браузер Internet Explorer. К сожалению генератор комиксов на этом браузере не поддерживает загрузку картинок.<br>
+                                    Для полнофункционального пользования используйте <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a> или
+                                    <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>
+                                </p>
+                            </div>
+
+                            <!-- Main container -->
+                            <div class="canvas-container clearfix">
+
+                                <script type="text/javascript">
+		var initial_category_id = 5;
+                                </script>
+
+                                <!-- Meme slideshow -->
+                                <div id="image-picker">
+                                    <ul><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/nrIUH3r4.png" alt="[nrIUH3r4.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/XoWc6Agz.png" alt="[XoWc6Agz.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/PenRn4CA.png" alt="[PenRn4CA.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/PjqKTGE9.png" alt="[PjqKTGE9.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/NT1xCRsk.png" alt="[NT1xCRsk.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/LFX4Looi.png" alt="[LFX4Looi.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/Xg4rJfSG.png" alt="[Xg4rJfSG.png]" style="width: 48.8744px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/UNch9j7X.png" alt="[UNch9j7X.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/B255Jbrv.png" alt="[B255Jbrv.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/s7XLn9aZ.png" alt="[s7XLn9aZ.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/J37gNX5r.png" alt="[J37gNX5r.png]" style="width: 48px;"></a></li><li><a href="javascript:void(0);" class="allow-canvas-droppable ui-draggable"><img src="/static/faces/5/Iqu8SOCW.png" alt="[Iqu8SOCW.png]" style="width: 48px;"></a></li></ul>
+                                </div>
+
+                                <!-- Meme save dialogue -->
+                                <!--
+                                <div id="save-dialog" title="Создать комикс" >
+                                    <div>
+                                        <div id="save-result"></div>
+                                        <a href="javascript:void(0);" id="save-image">Share Comic</a> With title of <input id="comic-title" type="text" value="" />
+                                    </div>
+                                </div>
+                                -->
+                                <!-- Brush options dialogue -->
+                                <!-- Text options dialogue -->
+                                <!-- Image insert dialogue -->
+                                <!-- Layers management dialogue -->
+                                <!-- Rage Maker Toolbar & Canvas container -->
+                                <div id="rage-maker-container">
+
+                                    <!-- Toolbar -->
+                                    <div class="ragemaker-toolbar">
+                                        <div class="toolbar-inner">
+                                            <select id="select-image-group" style="margin-bottom: 0"><option value="5" selected="selected">Men (Чувак)</option><option value="31">Ololosh (Ололош)</option><option value="7">Rage Guy (Ярость)</option><option value="11">Yao Ming (Яо Минг)</option><option value="26">Cat (Шаблоны Котэ)</option><option value="30">Dog (Шаблоны собак)</option><option value="9">Troll №1 (Тролль №1)</option><option value="37">Troll №2 (Тролль №2)</option><option value="10">Troll №3 (Тролль №3)</option><option value="35">Saw face (Лица пилы)</option><option value="8">Popular (Популярные)</option><option value="17">People №1 (Мужчины)</option><option value="18">People №2 (Мужчины)</option><option value="28">People №3 (Мужчины)</option><option value="39">People №4 (Женщины)</option><option value="25">New (Новые шаблоны)</option><option value="12">Final (Подвал комикса)</option><option value="13">Characters (Персонажи)</option><option value="32">Super Мем (Супер мемы) </option><option value="4">Me Gusta (Мне нравится)</option><option value="27">Mem Face №1 (Мем лица)</option><option value="29">Mem Face №2 (Мем лица)</option><option value="40">Mem Face №3 (Мем лица)</option><option value="16">Intelligency (Интеллигенция)</option><option value="21">Face №1 (Эмоции на лицах)</option><option value="22">Face №2 (Эмоции на лицах)</option><option value="23">Face №3 (Эмоции на лицах)</option><option value="43">Terebonkay (Теребонкай)</option><option value="3">Forever Alone (Одиночество)</option><option value="1">Cereal Guy (Чувак со злаками)</option><option value="38">At the computer (За компьютером) </option><option value="41">New year's caps (Новогодние шапки)</option><option value="19">Сomic clouds (Облака для комиксов)</option><option value="36">Man's wigs №1 (Мужские парики №1)</option><option value="14">Female wigs №1 ( Женские парики №1)</option><option value="33">Female wigs №2 ( Женские парики №2)</option><option value="34">Female wigs №3 ( Женские парики №3)</option><option value="24">Objects for comics (предметы для комикса)</option><option value="15">Templates of comics (Шаблоны готовых комиксов)</option></select>
+                                            <a href="javascript:void(0)" id="brush-dialog-open" title="Рисовать" class="btn"><i class="icon-pencil"></i></a>
+                                            <a href="javascript:void(0)" id="text-dialog-open" title="Вставить текст" class="btn"><i class="icon-font"></i></a>
+                                            <a href="javascript:void(0)" id="image-from-url-dialog-open" title="Вставить картинку" class="btn"><i class="icon-picture"></i></a>
+                                            <a href="javascript:void(0)" id="layers-dialog-open" title="Управление слоями" class="btn" style="margin-right:155px"><i class="icon-th-large"></i></a>
+                                            <!--<a href="javascript:void(0)" id="save-dialog-open" title="Сохранить комикс" class="btn"><i class="icon-download-alt"></i></a>-->
+                                            <a href="javascript:void(0)" id="canvas-remove-all" title="Удалить все слои" class="btn" data-confirm="Вы уверены что хотите удалить ВСЁ содержимое комикса?"><i class="icon-trash"></i></a>
+                                            <a href="javascript:void(0)" id="canvas-remove-row" title="Удалить строку" class="btn"><i class="icon-minus-sign"></i></a>
+                                            <a href="javascript:void(0)" id="canvas-add-row" title="Добавить строку" class="btn"><i class="icon-plus-sign"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Checkbox template -->
+                                    <div class="pane-control-checkboxes-template pane-control-checkboxes">
+                                        <input type="checkbox" name="pcb" value="">
+                                    </div>
+
+                                    <!-- Default checkboxes -->
+                                    <div class="pane-control-checkboxes pcctl1" style="top: 614px; left: 125px;">
+                                        <input type="checkbox" name="pcb" value="" checked="true"><!--<p>Лево</p>-->
+                                    </div>
+                                    <div class="pane-control-checkboxes pcc1" style="top: 489px; left: 125px;">
+                                        <input type="checkbox" name="pcb" value="" checked="true"><!--<p>Середина</p>-->
+                                    </div>
+                                    <div class="pane-control-checkboxes pcctr1" style="top: 614px; left: 802px;">
+                                        <input type="checkbox" name="pcb" value="" checked="true"><!--<p>Право</p>-->
+                                    </div>
+                                    <div class="pane-control-checkboxes pcc2" style="top: 729px; left: 125px;">
+                                        <input type="checkbox" name="pcb" value="" checked="true"><!--<p>Середина</p>-->
+                                    </div>
+
+                                    <!-- Main canvas container -->
+                                    <div id="canvas-droppable" style="position: relative; float: left; width: 652px; overflow: hidden">
+
+                                        <!-- Text layer template -->
+                                        <div class="text-dragger-template" style="display: none; position: absolute; top: 0px; left: 0px; height: auto">
+                                            <div class="ragemaker-layer-toolbar text-dragger-tools clearfix">
+                                                <a href="javascript:void(0)" class="text-dragger-rotatel" title="Повернуть влево"><i class="icon-chevron-left icon-white"></i></a>
+                                                <a href="javascript:void(0)" class="text-dragger-rotater" title="Повернуть вправо"><i class="icon-chevron-right icon-white"></i></a>
+                                                <span class="layer-name"></span>
+                                                <a href="javascript:void(0)" class="text-dragger-close" title="Удалить слой"><i class="icon-remove icon-white"></i></a>
+                                            </div>
+                                            <div class="text-container">
+                                                <textarea style="height: auto; line-height: 1.2em;"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Image layer template -->
+                                        <div class="image-dragger-template" style="display: none; position: absolute; top: 0px; left: 0px">
+                                            <div class="ragemaker-layer-toolbar image-dragger-tools clearfix">
+                                                <a href="javascript:void(0)" class="image-dragger-rotatel" title="Повернуть влево"><i class="icon-chevron-left icon-white"></i></a>
+                                                <a href="javascript:void(0)" class="image-dragger-rotater" title="Повернуть вправо"><i class="icon-chevron-right icon-white"></i></a>
+                                                <a href="javascript:void(0)" class="image-dragger-flip" title="Перевернуть горизонтально"><i class="icon-resize-horizontal icon-white"></i></a>
+                                                <span class="layer-name"></span>
+                                                <a href="javascript:void(0)" class="image-dragger-close" title="Удалить слой"><i class="icon-remove icon-white"></i></a>
+                                            </div>
+                                            <div class="image-container" style="overflow: visible"></div>
+                                        </div>
+
+                                        <!-- Drawing canvas layer -->
+                                        <div class="canvas-dragger-template" style="display: none; position: absolute; top: 0px; left: 0px">
+                                            <div class="ragemaker-layer-toolbar canvas-dragger-tools clearfix">
+                                                <a href="javascript:void(0)" class="canvas-dragger-clearcanvas" title="Очистить холст"><i class="icon-trash icon-white"></i></a>
+                                                <a href="javascript:void(0)" class="canvas-dragger-show-brushtools" title="Открыть настройки рисования"><i class="icon-pencil icon-white"></i></a>
+                                                <a href="javascript:void(0)" class="canvas-dragger-undo" title="Отменить действие"><i class="icon-repeat icon-white"></i></a>
+                                                <span class="layer-name"></span>
+                                                <a href="javascript:void(0)" class="canvas-dragger-close" title="Удалить слой"><i class="icon-remove icon-white"></i></a>
+                                            </div>
+                                            <div class="drawcanvas-container" style="overflow: visible">
+                                                <canvas width="200" height="200"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <!-- Main Canvas -->
+                                        <canvas id="MyCanvas" width="650" height="480" class="ui-droppable"></canvas>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of main container -->
+
+                            <noindex>
+                                <div class="alert alert-error">
+                                    Для незарегистрированных пользователей, генератор комиксов доступен лишь в режиме ознакомления.<br>
+                                    Чтобы получить возможность сохранить все свои действия, необходимо зарегистрироваться, либо войти в свою учётную запись.<br>
+                                    <a class="btn" href="/signin?to=%2Fcreate_comics">Вход</a> <a class="btn" href="/signup?to=%2Fcreate_comics">Регистрация</a>
+                                </div>
+                            </noindex>
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- Help -->
+                    <h2 style="text-align: center"><a href="/create_comics/help" target="_blank">инструкция генератора комиксов</a></h2>
+
+                    <!-- Comments -->
+                    <div style="width: 660px; margin: 20px auto;">
+                        <div id="vk_comments" style="height: 1810px; width: 660px; background: none;"><iframe name="fXDec695" frameborder="0" src="http://vk.com/widget_comments.php?app=2694307&amp;width=660px&amp;_ver=1&amp;limit=10&amp;height=0&amp;mini=auto&amp;norealtime=0&amp;page=0&amp;status_publish=1&amp;attach=*&amp;url=http%3A%2F%2F1001mem.ru%2Fcreate_comics&amp;title=%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BA%D0%BE%D0%BC%D0%B8%D0%BA%D1%81%20%7C%20%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B8%D0%BA%D1%81%D0%BE%D0%B2&amp;description=%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B8%D0%BA%D1%81%D0%BE%D0%B2%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B7%D0%B2%D0%BE%D0%BB%D1%8F%D0%B5%D1%82%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BA%D0%BE%D0%BC%D0%B8%D0%BA%D1%81%2C%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B5%D0%B3%D0%BE%20%D0%B8%20%D0%BE%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5&amp;image=http%3A%2F%2Fs.1001mem.ru%2F%2Fimages%2Fapple-touch-icon-114x114.png&amp;referrer=&amp;154af90c94e" width="660" height="133" scrolling="no" id="vkwidget1" style="overflow: hidden; height: 1810px;"></iframe></div>
+                        <script type="text/javascript">
+		VK.Widgets.Comments("vk_comments", {limit: 10, width: "660", attach: "*"});
+                        </script>
+                    </div>
+
+                </div>
+
+                <!-- Seo -->
+                <div class="seo">
+                    С помощью нашего генератора комиксов вы можете создать комикс в режиме онлайн, опубликовать
+                    его в разделе <a href="http://1001mem.ru/voting">новые комиксы</a> или просмотреть комиксы созданными другими пользователями.
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <div class="container responsive">
+            <div class="row" id="footer_bottom">
+                <div class="span12">
+                    <div class="pull-left">
+                        <a href="/rules">Правила</a> | <a href="http://askbook.me/support_1001mem" target="_blank">Обратная Связь</a> | <a href="/faq">Что такое мем?</a><br>
+                        1001мем.ру © 2011 — 2016.  <a href="/copyright" target="_blank">Все права защищены.</a><a>
+                            <!-- |  | Мы в Facebook -->
+                        </a>
+                    </div><a>
+                        <div class="pull-right">
+                            <!--LiveInternet counter-->
+                            <script type="text/javascript">document.write("<img src='//counter.yadro.ru/hit?t44.1;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) + ";" + Math.random() + "' border=0 width=31 height=31 alt=''>")</script><img src="//counter.yadro.ru/hit?t44.1;r;s1600*900*24;uhttp%3A//1001mem.ru/create_comics;0.16168115788056037" border="0" width="31" height="31" alt="">
+                            <!--/LiveInternet-->
+                        </div>
+                    </a>
+                </div><a>
+                </a>
+            </div><a>
+            </a>
+        </div><a>
+        </a>
+    </div><a>
+
+
+    </a><div class="modal fade" id="ajaxModal">
+        <a>
+        </a><div class="modal-header">
+            <a>
+            </a><a class="close" data-dismiss="modal">×</a>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer"></div>
+    </div>
+
+    <div class="modal fade" id="voteNotLoggedModal">
+        <div class="modal-body">
+            <h4 style="text-align:center">Данная функция доступна только зарегистрированным пользователям</h4>
+        </div>
+        <div class="modal-footer" style="padding-right: 185px;">
+            <a href="/signup?to=%2Fvote%2Flike%2F0" id="modalLikeSignup" class="btn btn-primary btn-large">Регистрация</a>
+            <a href="/signin?to=%2Fvote%2Flike%2F0" id="modalLikeSignin" class="btn btn-primary btn-large">Вход</a>
+        </div>
+    </div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-22922008-4', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-brush-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-brush-dialog">Настройки рисования</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="brush-dialog" class="ui-dialog-content ui-widget-content">
+            <h3><span id="stroke-color" style="background-color: rgb(22, 133, 173);">Цвет заливки</span></h3>
+            <div>
+                <div id="stroke-color-picker"><div class="farbtastic"><div class="color" style="background-color: rgb(0, 187, 255);"></div><div class="wheel"></div><div class="overlay"></div><div class="h-marker marker" style="left: 74px; top: 178px;"></div><div class="sl-marker marker" style="left: 70px; top: 109px;"></div></div></div>
+            </div>
+            <h3>Размер кисти<div id="brush-size" class="accordion-amount">5</div></h3>
+            <div>
+                <div id="slider-brushsize" style="width: 200px;" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="width: 13.7931%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 13.7931%;"></a></div>
+                <div id="brush-size-example" style="margin: 15px auto; width: 5px; height: 5px; background-color: rgb(22, 133, 173);"></div>
+            </div>
+        </div><div class="ui-resizable-handle ui-resizable-n"></div><div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-w"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004;"></div>
+    </div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-text-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-text-dialog">Настройки Текста</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="text-dialog" class="ui-dialog-content ui-widget-content">
+            <h3>
+                <span id="fill-color">Цвет текста</span>
+            </h3>
+            <div id="fill-color-roller">
+                <div id="fill-color-picker"><div class="farbtastic"><div class="color" style="background-color: rgb(255, 0, 0);"></div><div class="wheel"></div><div class="overlay"></div><div class="h-marker marker" style="left: 97px; top: 13px;"></div><div class="sl-marker marker" style="left: 147px; top: 147px;"></div></div></div>
+            </div>
+            <h3>Шрифт / Размер<div id="font-size" class="accordion-amount">30</div></h3>
+            <div>
+                Шрифт текста:
+                <form action="">
+                    <select id="select-font">
+                        <option value="Serif" selected="selected">Serif</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Sans-serif">Sans-serif</option>
+                        <option value="Monospace">Monospace</option>
+                    </select>
+                </form>
+                Размер текста:
+                <div id="font-size-slider" style="width:200px; height: 5px;" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="width: 22.2222%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 22.2222%;"></a></div>
+            </div>
+        </div><div class="ui-resizable-handle ui-resizable-n"></div><div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-w"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004;"></div>
+    </div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-image-from-url-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-image-from-url-dialog">Загрузить картинку</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="image-from-url-dialog" class="ui-dialog-content ui-widget-content">
+            <h5>Загрузить картинку с компьютера</h5>
+            <input name="imagefile" id="imagefile" type="file" style="display: block; margin-bottom: 5px" size="50">
+            <a href="javascript:void(0);" class="btn primary small" id="get-image-file">Загрузить картинку</a>
+
+            <h5>Вставить картинку из ссылки</h5>
+            <input id="image-url" type="text" value="" style="width: 310px; display: block; margin-bottom: 5px">
+            <a href="javascript:void(0);" class="btn primary small" id="get-image">Вставить картинку</a>
+
+            <div class="result"></div>
+            <!--<img id="loading" src="images/loading.gif" style="visibility: hidden"/>-->
+        </div><div class="ui-resizable-handle ui-resizable-n"></div><div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-w"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004;"></div>
+    </div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-layers-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-layers-dialog">Управление слоями</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="layers-dialog" class="ui-dialog-content ui-widget-content">
+            <ol id="layers" class="ui-selectable">
+                <li class="layers-template ui-widget-content ui-selectee"><input type="text" name="layer-name-input" class="layer-name-input ui-selectee"></li>
+            </ol>
+            <div id="layer-tools">
+                <a href="javascript:void(0)" id="move-layer-up" class="btn btn-icon" title="Передвинуть вверх"><i class="icon-arrow-up"></i></a>
+                <a href="javascript:void(0)" id="move-layer-down" class="btn btn-icon" title="Передвинуть вниз"><i class="icon-arrow-down"></i></a>
+                <a href="javascript:void(0)" id="delete-layer" class="btn btn-icon" title="Удалить слой"><i class="icon-trash"></i></a>
+            </div>
+        </div><div class="ui-resizable-handle ui-resizable-n"></div><div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-w"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004;"></div>
+    </div>
+</body>
+</html>
